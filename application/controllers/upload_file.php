@@ -25,7 +25,6 @@ class Upload_file extends CI_Controller {
 		{
 			$error = $this->upload->display_errors();
 			echo json_encode($error);
-
 		}
 		else
 		{

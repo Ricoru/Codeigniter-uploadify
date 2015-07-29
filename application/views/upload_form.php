@@ -21,8 +21,7 @@
     <button type="button" id="btnDownload">Descargar</button><br/>
     Nota: Recuerde Ingresar el nombre con la extesión;<br/>
     <div>
-      <!--<a href="<?php echo site_url() ?>upload_file/downloads_name/CV_BUDDY_RICHARD_ORUNA_RODRIGUEZ.pdf">Descarga 1</a>
-      <a href="<?php echo site_url() ?>upload_file/downloads_name/COTIZACIONES_2.pdf">Descarga 2</a>
+      <!--
       <a href="<?php echo site_url() ?>upload_file/downloads_name/IMG_1829.jpg">Descarga 3</a>
       <a href="<?php echo site_url() ?>upload_file/downloads_name/logobolognesi.png">Descarga 4</a>-->
     </div>
