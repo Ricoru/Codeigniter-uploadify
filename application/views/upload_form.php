@@ -30,6 +30,7 @@
       var ejecuta = false;
       var base_url = '<?php echo base_url();?>';
       var cadena = "";
+      var cadena_dir = "";
 
       $(document).ready(function () {
 
@@ -56,9 +57,6 @@
             'width'    : 200,
             'method'  : 'post',
             'removeCompleted':false,
-            'onSelect' : function(file) {
-                ejecuta = true;
-            },
             'onSelectError' : function(file) {
               $("#msj_error").text('El Archivo ' + file.name + ' excede el tamaño limite de 2MB');
             },
@@ -68,19 +66,23 @@
             'onUploadError' : function(file, errorCode, errorMsg, errorString) {
                 console.log(file);
                 console.log(errorString);
-                ejecuta = false;
+            },
+            'onUploadSuccess' : function(file, data, response) {
+                console.log('The file data: ' + file);
+                console.log('The file data: ' + data);
+                cadena = cadena + data+";";
+                cadena_dir = cadena_dir + file.name + ";";
+                // cadena = nombre del archivo
+                // cadena _ dir el es nombre codificado del archivo
+                // Esto funciona para 1 o mas archivos
             },
             'onUploadComplete' : function(file) {
-                // te muestra un console por archivo cuando se te muestra completado
+                console.log(file);
                 console.log('The file ' + file.name + ' finished processing.');
-                ejecuta = false;
-                cadena = cadena + file.name+";";
-                console.log(cadena);
-                $("#txtdireccion").val(cadena);
             },
             'onQueueComplete' : function(queueData) {
-              //si trabajas con metodo ajax, aqui seria enviar tu formulario despues de cargar tus archivos
-              console.log(queueData);
+                console.log(queueData);
+                // Aqui se envia o llama al formulario para que se envie la data despues de haber subido la informacion al servidor
             }
         });
       

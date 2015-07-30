@@ -17,8 +17,10 @@ class Upload_file extends CI_Controller {
 	public function uploadFile()
 	{
 		$config['upload_path'] = "./uploads";
+		$config['file_name'] = "file_".uniqid();
 		$config['allowed_types'] = '*';
 		$config['max_size'] = 0;
+		$config['remove_spaces'] = TRUE;
 		$this->load->library('upload', $config);
 
 		if ( ! $this->upload->do_upload("txt_adjunto"))
